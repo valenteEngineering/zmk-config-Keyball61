@@ -30,7 +30,7 @@
 
 / {
     macros {
-#if __has_include("secrets.dtsi")
+        #if __has_include("secrets.dtsi")
 #include "secrets.dtsi"
 #else
 #include "secrets.example.dtsi"
@@ -41,7 +41,9 @@
             #binding-cells = <0>;
             wait-ms = <10>;
             tap-ms = <10>;
-            bindings = <&macro_tap &kp G &kp G &kp DOUBLE_QUOTES &kp PLUS &kp Y &kp LS(G)>;
+            bindings =
+                <&macro_tap>,
+                <&kp G &kp G &kp DOUBLE_QUOTES &kp PLUS &kp Y &kp LS(G)>;
         };
 
         vim_paste: vim_paste {
@@ -49,7 +51,7 @@
             #binding-cells = <0>;
             wait-ms = <10>;
             tap-ms = <10>;
-            bindings = <&macro_tap &kp DOUBLE_QUOTES &kp PLUS &kp P>;
+            bindings = <&macro_tap>, <&kp DOUBLE_QUOTES &kp PLUS &kp P>;
         };
 
         vim_yank: vim_yank {
@@ -57,7 +59,7 @@
             #binding-cells = <0>;
             wait-ms = <10>;
             tap-ms = <10>;
-            bindings = <&macro_tap &kp DOUBLE_QUOTES &kp PLUS &kp Y>;
+            bindings = <&macro_tap>, <&kp DOUBLE_QUOTES &kp PLUS &kp Y>;
         };
     };
 
@@ -70,18 +72,18 @@
 &kp ESC         &kp N1     &kp N2     &kp N3   &kp N4  &kp N5                                              &kp N6     &kp N7  &kp N8  &kp N9  &kp N0    &kp MINUS
 &kp TAB         &kp SQT    &kp COMMA  &kp DOT  &kp P   &kp Y                                               &kp F      &kp G   &kp C   &kp R   &kp L     &kp FSLH
 &kp ESC         &kp A      &kp O      &kp E    &kp U   &kp I                                               &kp D      &kp H   &kp T   &kp N   &kp S     &kp BACKSLASH
-&kp LEFT_SHIFT  &kp SEMI   &kp Q      &kp J    &kp K   &kp X        &kp PAGE_DOWN     &kp BACKSPACE        &kp B      &kp M   &kp W   &kp V   &kp Z     &kp RIGHT_SHIFT
-&mo 2           &kp LCTRL  &kp HOME   &kp END  &mo 6   &lt 4 SPACE  &kp LEFT_CONTROL  &mt RIGHT_WIN ENTER  &kp SPACE                          &kp RGUI  &kp DELETE
+&kp LEFT_SHIFT  &kp SEMI   &kp Q      &kp J    &kp K   &kp X        &kp PAGE_DOWN     &mt RIGHT_WIN ENTER  &kp B      &kp M   &kp W   &kp V   &kp Z     &kp RIGHT_SHIFT
+&mo 2           &kp LCTRL  &kp HOME   &kp END  &mo 6   &lt 4 SPACE  &kp LEFT_CONTROL  &kp BACKSPACE        &kp SPACE                          &kp RGUI  &kp DELETE
             >;
         };
 
         number_layer {
             bindings = <
-&trans  &kp N1    &kp N2    &kp N3  &kp N4     &kp N5                       &kp N6     &kp N7  &kp N8  &kp N9  &kp N0  &kp DEL
-&trans  &trans    &trans    &trans  &trans     &trans                       &kp LC(A)  &trans  &trans  &trans  &trans  &trans
-&trans  &kp LEFT  &kp DOWN  &kp UP  &kp RIGHT  &trans                       &trans     &trans  &trans  &trans  &trans  &trans
-&trans  &trans    &trans    &trans  &trans     &trans       &trans  &trans  &trans     &trans  &trans  &trans  &trans  &trans
-&trans  &trans    &trans    &trans  &trans     &trans       &trans  &trans  &trans                             &trans  &trans
+&trans  &kp N1    &kp N2    &kp N3  &kp N4     &kp N5                  &kp N6     &kp N7  &kp N8  &kp N9  &kp N0  &kp DEL
+&trans  &trans    &trans    &trans  &trans     &trans                  &kp LC(A)  &trans  &trans  &trans  &trans  &trans
+&trans  &kp LEFT  &kp DOWN  &kp UP  &kp RIGHT  &trans                  &trans     &trans  &trans  &trans  &trans  &trans
+&trans  &trans    &trans    &trans  &trans     &trans  &trans  &trans  &trans     &trans  &trans  &trans  &trans  &trans
+&trans  &trans    &trans    &trans  &trans     &trans  &trans  &trans  &trans                             &trans  &trans
             >;
 
             label = "NUM";
@@ -101,11 +103,11 @@
         function_layer {
             label = "FUN";
             bindings = <
-&trans  &trans  &trans   &trans   &trans   &trans                       &kp C_PREV         &kp C_PLAY_PAUSE    &kp C_NEXT      &kp C_VOL_DN  &kp C_VOL_UP  &kp C_MUTE
-&trans  &kp F1  &kp F2   &kp F3   &kp F4   &trans                       &kp LC(LA(F1))     &kp LC(LA(F2))      &kp LC(LA(F3))  &kp LA(F4)    &trans        &trans
-&trans  &kp F5  &kp F6   &kp F7   &kp F8   &trans                       &kp LC(LA(T))      &kp LC(LA(DEL))     &kp LS(F10)     &kp LA(I)     &trans        &trans
-&trans  &kp F9  &kp F10  &kp F11  &kp F12  &trans       &trans  &trans  &trans             &trans              &trans          &trans        &trans        &trans
-&trans  &trans  &trans   &trans   &trans   &trans       &trans  &trans  &trans                                                               &trans        &trans
+&trans  &trans  &trans   &trans   &trans   &trans                  &kp C_PREV      &kp C_PLAY_PAUSE  &kp C_NEXT      &kp C_VOL_DN  &kp C_VOL_UP  &kp C_MUTE
+&trans  &kp F1  &kp F2   &kp F3   &kp F4   &trans                  &kp LC(LA(F1))  &kp LC(LA(F2))    &kp LC(LA(F3))  &kp LA(F4)    &trans        &trans
+&trans  &kp F5  &kp F6   &kp F7   &kp F8   &trans                  &kp LC(LA(T))   &kp LC(LA(DEL))   &kp LS(F10)     &kp LA(I)     &trans        &trans
+&trans  &kp F9  &kp F10  &kp F11  &kp F12  &trans  &trans  &trans  &trans          &trans            &trans          &trans        &trans        &trans
+&trans  &trans  &trans   &trans   &trans   &trans  &trans  &trans  &trans                                                          &trans        &trans
             >;
         };
 
