@@ -33,11 +33,11 @@
         default_layer {
             label = "DVRK";
             bindings = <
-&kp ESC         &kp N1     &kp N2     &kp N3   &kp N4  &kp N5                                      &kp N6         &kp N7  &kp N8  &kp N9  &kp N0    &kp MINUS
-&kp TAB         &kp SQT    &kp COMMA  &kp DOT  &kp P   &kp Y                                       &kp F          &kp G   &kp C   &kp R   &kp L     &kp FSLH
-&kp ESC         &kp A      &kp O      &kp E    &kp U   &kp I                                       &kp D          &kp H   &kp T   &kp N   &kp S     &kp BACKSLASH
-&kp LEFT_SHIFT  &kp SEMI   &kp Q      &kp J    &kp K   &kp X        &kp PAGE_DOWN     &kp PAGE_UP  &kp B          &kp M   &kp W   &kp V   &kp Z     &kp RIGHT_SHIFT
-&mo 2           &kp LCTRL  &kp HOME   &kp END  &mo 6   &lt 4 SPACE  &kp LEFT_CONTROL  &kp ENTER    &kp BACKSPACE                          &kp RGUI  &kp DELETE
+&kp ESC         &kp N1     &kp N2     &kp N3   &kp N4  &kp N5                                              &kp N6     &kp N7  &kp N8  &kp N9  &kp N0    &kp MINUS
+&kp TAB         &kp SQT    &kp COMMA  &kp DOT  &kp P   &kp Y                                               &kp F      &kp G   &kp C   &kp R   &kp L     &kp FSLH
+&kp ESC         &kp A      &kp O      &kp E    &kp U   &kp I                                               &kp D      &kp H   &kp T   &kp N   &kp S     &kp BACKSLASH
+&kp LEFT_SHIFT  &kp SEMI   &kp Q      &kp J    &kp K   &kp X        &kp PAGE_DOWN     &kp BACKSPACE        &kp B      &kp M   &kp W   &kp V   &kp Z     &kp RIGHT_SHIFT
+&mo 2           &kp LCTRL  &kp HOME   &kp END  &mo 6   &lt 4 SPACE  &kp LEFT_CONTROL  &mt RIGHT_WIN ENTER  &kp SPACE                          &kp RGUI  &kp DELETE
             >;
         };
 
