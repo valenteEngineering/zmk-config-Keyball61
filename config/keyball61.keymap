@@ -36,16 +36,6 @@
 #include "secrets.example.dtsi"
 #endif
 
-        vim_yank_all: vim_yank_all {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            wait-ms = <10>;
-            tap-ms = <10>;
-            bindings =
-                <&macro_tap>,
-                <&kp G &kp G &kp DOUBLE_QUOTES &kp PLUS &kp Y &kp LS(G)>;
-        };
-
         vim_paste: vim_paste {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -92,11 +82,11 @@
         symbol_layer {
             label = "SYM";
             bindings = <
-&trans  &kp EXCLAMATION  &kp AT_SIGN   &kp HASH      &kp DOLLAR    &kp PERCENT                  &kp CARET       &kp AMPERSAND  &kp ASTERISK      &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &pw_main
-&trans  &trans           &trans        &trans        &trans        &trans                       &vim_yank_all   &vim_paste     &vim_yank         &trans                &trans                 &trans
-&trans  &bt BT_CLR       &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &trans                       &kp MINUS       &kp EQUAL      &kp LEFT_BRACKET  &kp RIGHT_BRACKET     &trans                 &trans
-&trans  &trans           &trans        &trans        &trans        &trans       &trans  &trans  &kp UNDERSCORE  &kp PLUS       &trans            &trans                &trans                 &trans
-&trans  &trans           &trans        &trans        &trans        &trans       &trans  &trans  &trans                                                                 &trans                 &trans
+&none  &none  &none  &none  &none       &none                       &none  &none  &none          &none  &none  &kp LC(LA(DEL))
+&none  &none  &none  &none  &vim_paste  &vim_yank                   &none  &none  &none          &none  &none  &none
+&none  &none  &none  &none  &none       &none                       &none  &none  &kp LC(LA(T))  &none  &none  &none
+&none  &none  &none  &none  &none       &none      &none    &none   &none  &none  &none          &none  &none  &none
+&none  &none  &none  &none  &none       &none      &none    &none   &none                               &none  &none
             >;
         };
 
