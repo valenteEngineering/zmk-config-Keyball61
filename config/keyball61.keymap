@@ -1,9 +1,11 @@
 #define DEFAULT 0
-#define SYM     1
-#define FUN     2
-#define MOUSE   3
-#define SCROLL  4
-#define SNIPE   5
+#define NUM     1
+#define SYM     2
+#define FUN     3
+#define MOUSE   4
+#define SCROLL  5
+#define SNIPE   6
+#define QWRT    7
 
 #include <behaviors/mouse_keys.dtsi>
 #include <dt-bindings/zmk/mouse.h>
@@ -26,6 +28,38 @@
 };
 
 / {
+    macros {
+#if __has_include("secrets.dtsi")
+#include "secrets.dtsi"
+#else
+#include "secrets.example.dtsi"
+#endif
+
+        vim_yank_all: vim_yank_all {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings = <&macro_tap &kp G &kp G &kp DOUBLE_QUOTES &kp PLUS &kp Y &kp LS(G)>;
+        };
+
+        vim_paste: vim_paste {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings = <&macro_tap &kp DOUBLE_QUOTES &kp PLUS &kp P>;
+        };
+
+        vim_yank: vim_yank {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings = <&macro_tap &kp DOUBLE_QUOTES &kp PLUS &kp Y>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -42,11 +76,11 @@
 
         number_layer {
             bindings = <
-&trans  &kp N1    &kp N2    &kp N3  &kp N4     &kp N5                  &kp N6  &kp N7  &kp N8  &kp N9  &kp N0  &trans
-&trans  &trans    &trans    &trans  &trans     &trans                  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &kp LEFT  &kp DOWN  &kp UP  &kp RIGHT  &trans                  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans    &trans    &trans  &trans     &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans    &trans    &trans  &trans     &trans  &trans  &trans  &trans                          &trans  &trans
+&trans  &kp N1    &kp N2    &kp N3  &kp N4     &kp N5                       &kp N6     &kp N7  &kp N8  &kp N9  &kp N0  &kp DEL
+&trans  &trans    &trans    &trans  &trans     &trans                       &kp LC(A)  &trans  &trans  &trans  &trans  &trans
+&trans  &kp LEFT  &kp DOWN  &kp UP  &kp RIGHT  &trans                       &trans     &trans  &trans  &trans  &trans  &trans
+&trans  &trans    &trans    &trans  &trans     &trans       &trans  &trans  &trans     &trans  &trans  &trans  &trans  &trans
+&trans  &trans    &trans    &trans  &trans     &trans       &trans  &trans  &trans                             &trans  &trans
             >;
 
             label = "NUM";
@@ -55,8 +89,8 @@
         symbol_layer {
             label = "SYM";
             bindings = <
-&trans  &kp EXCLAMATION  &kp AT_SIGN   &kp HASH      &kp DOLLAR    &kp PERCENT                  &kp CARET       &kp AMPERSAND  &kp ASTERISK      &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &trans
-&trans  &trans           &trans        &trans        &trans        &trans                       &trans          &trans         &trans            &trans                &trans                 &trans
+&trans  &kp EXCLAMATION  &kp AT_SIGN   &kp HASH      &kp DOLLAR    &kp PERCENT                  &kp CARET       &kp AMPERSAND  &kp ASTERISK      &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &pw_main
+&trans  &trans           &trans        &trans        &trans        &trans                       &vim_yank_all   &vim_paste     &vim_yank         &trans                &trans                 &trans
 &trans  &bt BT_CLR       &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &trans                       &kp MINUS       &kp EQUAL      &kp LEFT_BRACKET  &kp RIGHT_BRACKET     &trans                 &trans
 &trans  &trans           &trans        &trans        &trans        &trans       &trans  &trans  &kp UNDERSCORE  &kp PLUS       &trans            &trans                &trans                 &trans
 &trans  &trans           &trans        &trans        &trans        &trans       &trans  &trans  &trans                                                                 &trans                 &trans
@@ -66,11 +100,11 @@
         function_layer {
             label = "FUN";
             bindings = <
-&trans  &trans  &trans   &trans   &trans   &trans                  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &kp F1  &kp F2   &kp F3   &kp F4   &trans                  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &kp F5  &kp F6   &kp F7   &kp F8   &trans                  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &kp F9  &kp F10  &kp F11  &kp F12  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans   &trans   &trans   &trans  &trans  &trans  &trans                          &trans  &trans
+&trans  &trans  &trans   &trans   &trans   &trans                       &kp C_PREV         &kp C_PLAY_PAUSE    &kp C_NEXT      &kp C_VOL_DN  &kp C_VOL_UP  &kp C_MUTE
+&trans  &kp F1  &kp F2   &kp F3   &kp F4   &trans                       &kp LC(LA(F1))     &kp LC(LA(F2))      &kp LC(LA(F3))  &kp LA(F4)    &trans        &trans
+&trans  &kp F5  &kp F6   &kp F7   &kp F8   &trans                       &kp LC(LA(T))      &kp LC(LA(DEL))     &kp LS(F10)     &kp LA(I)     &trans        &trans
+&trans  &kp F9  &kp F10  &kp F11  &kp F12  &trans       &trans  &trans  &trans             &trans              &trans          &trans        &trans        &trans
+&trans  &trans  &trans   &trans   &trans   &trans       &trans  &trans  &trans                                                               &trans        &trans
             >;
         };
 
