@@ -71,7 +71,7 @@
 
         number_layer {
             bindings = <
-&trans  &kp N1    &kp N2    &kp N3  &kp N4     &kp N5                  &kp N6     &kp N7  &kp N8  &kp N9  &kp N0  &kp DEL
+&trans  &kp N1    &kp N2    &kp N3  &kp N4     &kp N5                  &kp N6     &kp N7  &kp N8  &kp N9  &kp N0  &tog 8
 &trans  &trans    &trans    &trans  &trans     &trans                  &kp LC(A)  &trans  &trans  &trans  &trans  &trans
 &trans  &kp LEFT  &kp DOWN  &kp UP  &kp RIGHT  &trans                  &trans     &trans  &trans  &trans  &trans  &trans
 &trans  &trans    &trans    &trans  &trans     &trans  &trans  &trans  &trans     &trans  &trans  &trans  &trans  &trans
@@ -84,11 +84,11 @@
         symbol_layer {
             label = "SYM";
             bindings = <
-&trans  &trans  &trans  &trans  &trans      &trans                         &trans  &trans  &trans         &trans  &trans          &kp LC(LA(DEL))
+&trans  &trans  &trans  &trans  &trans      &trans                         &trans  &trans  &trans         &trans       &trans          &kp LC(LA(DEL))
 &trans  &trans  &trans  &trans  &vim_paste  &vim_yank                      &trans  &trans  &trans         &kp LS(F10)  &trans          &trans
-&trans  &trans  &trans  &trans  &trans      &trans                         &trans  &trans  &kp LC(LA(T))  &trans  &trans          &trans
-&trans  &trans  &trans  &trans  &trans      &trans     &trans  &trans      &trans  &trans  &trans         &trans  &trans          &trans
-&trans  &trans  &trans  &trans  &trans      &trans     &trans  &kp DELETE  &trans                                 &kp LEFT_ARROW  &kp RIGHT
+&trans  &trans  &trans  &trans  &trans      &trans                         &trans  &trans  &kp LC(LA(T))  &trans       &trans          &trans
+&mo 1   &trans  &trans  &trans  &trans      &trans     &trans  &trans      &trans  &trans  &trans         &trans       &trans          &trans
+&trans  &trans  &trans  &trans  &trans      &trans     &trans  &kp DELETE  &trans                                      &kp LEFT_ARROW  &kp RIGHT
             >;
         };
 
@@ -150,11 +150,11 @@
         bluetooth_layer {
             label = "BT";
             bindings = <
-&trans  &trans         &trans         &trans         &trans         &trans                          &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &out OUT_USB   &out OUT_BLE   &out OUT_TOG   &bt BT_PRV     &bt BT_NXT                      &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &bt BT_SEL 0   &bt BT_SEL 1   &bt BT_SEL 2   &bt BT_SEL 3   &bt BT_SEL 4                    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &bt BT_CLR     &bt BT_CLR_ALL &trans         &trans         &trans     &trans      &trans   &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans         &trans         &trans         &trans         &trans     &trans      &trans   &trans                          &trans  &trans
+&trans  &trans        &trans          &trans        &trans        &trans                        &trans  &trans  &trans  &trans  &trans  &tog 1
+&trans  &out OUT_USB  &out OUT_BLE    &out OUT_TOG  &bt BT_PRV    &bt BT_NXT                    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &bt BT_SEL 0  &bt BT_SEL 1    &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4                  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &bt BT_CLR    &bt BT_CLR_ALL  &trans        &trans        &trans        &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans        &trans          &trans        &trans        &trans        &trans  &trans  &trans                          &trans  &trans
             >;
         };
     };
