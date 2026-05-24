@@ -75,18 +75,18 @@
 &trans  &trans  &trans  &trans  &trans      &trans                         &trans  &trans  &trans         &trans       &trans          &kp LC(LA(DEL))
 &trans  &trans  &trans  &trans  &vim_paste  &vim_yank                      &trans  &trans  &trans         &kp LS(F10)  &trans          &trans
 &trans  &trans  &trans  &trans  &trans      &trans                         &trans  &trans  &kp LC(LA(T))  &trans       &trans          &trans
-&mo 2   &trans  &trans  &trans  &trans      &trans     &trans  &trans      &trans  &trans  &trans         &trans       &trans          &trans
-&trans  &trans  &trans  &trans  &trans      &trans     &trans  &kp DELETE  &trans                                      &kp LEFT_ARROW  &kp RIGHT
+&trans  &trans  &trans  &trans  &trans      &trans     &trans  &trans      &trans  &trans  &trans         &trans       &trans          &trans
+&mo 2   &trans  &trans  &trans  &trans      &trans     &trans  &kp DELETE  &trans                                      &kp LEFT_ARROW  &kp RIGHT
             >;
         };
 
         number_layer {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans              &tog 8
-&trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans              &trans
-&trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans              &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans              &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans                          &kp LS(LG(LEFT))   &kp LS(LG(RIGHT))
+&trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans            &tog 8
+&trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans            &trans
+&trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans            &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans            &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans                          &kp LS(LG(LEFT))  &kp LS(LG(RIGHT))
             >;
 
             label = "NUM";
