@@ -150,7 +150,7 @@
         bluetooth_layer {
             label = "BT";
             bindings = <
-&trans  &trans        &trans          &trans        &trans        &trans                        &trans  &trans  &trans  &trans  &trans  &tog 0
+&trans  &trans        &trans          &trans        &trans        &trans                        &trans  &trans  &trans  &trans  &trans  &tog 8
 &trans  &out OUT_USB  &out OUT_BLE    &out OUT_TOG  &bt BT_PRV    &bt BT_NXT                    &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &bt BT_SEL 0  &bt BT_SEL 1    &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4                  &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &bt BT_CLR    &bt BT_CLR_ALL  &trans        &trans        &trans        &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
